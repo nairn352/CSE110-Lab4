@@ -14,6 +14,10 @@ public class Model {
         repository.addExpense(e);
     }
 
+    public void deleteExpense(int expenseId) {
+        repository.deleteExpense(expenseId);
+    }
+
     public List<Expense> getExpenses() {
         return repository.getExpenses();
     }
