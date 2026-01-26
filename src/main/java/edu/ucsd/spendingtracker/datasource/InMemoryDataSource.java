@@ -6,18 +6,25 @@ import java.util.List;
 import edu.ucsd.spendingtracker.model.Category;
 import edu.ucsd.spendingtracker.model.Expense;
 
-public class InMemoryDataSource {
+public class InMemoryDataSource implements IDataSource{
     private List<Expense> expenses = new ArrayList<>();
 
     public InMemoryDataSource() {
     }
 
+    @Override
     public List<Expense> getExpenses() {
         return List.copyOf(expenses);
     }
 
+    @Override
     public void addExpense(Expense expense) {
         expenses.add(expense);
+    }
+
+    @Override
+    public void deleteExpense(int expenseId) {
+        expenses.removeIf(expense -> expense.getId() == expenseId);
     }
 
     public final static List<Expense> DEFAULT_EXPENSES = List.of(
