@@ -23,6 +23,8 @@ public class SpendingPresenter extends AbstractPresenter<SpendingView> {
                 updateView();
             });
         });
+
+        updateView();
     }
 
     public void setOnShowSummary(Runnable action) {
